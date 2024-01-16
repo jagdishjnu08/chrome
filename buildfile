@@ -10,3 +10,15 @@ autoninja -C out/Default chrome_public_apk;
 
 # Chrome apk Download
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Android/
+
+#Chrome debug apk via android studio.
+import org.chromium.base.Log;
+Log.i("jagdish", ">>>> showShieldsMenu");
+
+#include "base/logging.h"
+LOG(INFO) << "jagdish = "<<__FUNCTION__;
+
+build/android/gradle/generate_gradle.py --output-directory out/Default --target //chrome/android:chrome_public_apk
+out/Default/bin/chrome_public_apk run --wait-for-java-debugger
+
+src/out/Default/bin/chrome_public_apk run
